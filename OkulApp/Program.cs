@@ -16,7 +16,7 @@ namespace OkulApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmOgrKayit());
+            Application.Run(new frmOgretmenKayit());
         }
     }
 }

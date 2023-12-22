@@ -7,9 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OkulApp", "OkulApp\OkulApp.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OkulApp.MODEL", "OkulApp.MODEL\OkulApp.MODEL.csproj", "{DD19068C-9B73-44C5-BAC9-4E65FEC80B6D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OkulApp.BLL", "OkulApp.BLL\OkulApp.BLL.csproj", "{E505F034-1DC4-4AC7-A463-0247B811164F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OkulApp.BLL", "OkulApp.BLL\OkulApp.BLL.csproj", "{E505F034-1DC4-4AC7-A463-0247B811164F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OkulApp.DAL", "OkulApp.DAL\OkulApp.DAL.csproj", "{4278FB4C-6DCA-4F5E-AC72-6F81E55878CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OkulApp.DAL", "OkulApp.DAL\OkulApp.DAL.csproj", "{4278FB4C-6DCA-4F5E-AC72-6F81E55878CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
