@@ -15,6 +15,7 @@ namespace OkulApp
 {
     public partial class frmOgrKayit : Form
     {
+        public int OgrenciId { get; set; }
         public frmOgrKayit()
         {
             InitializeComponent();
@@ -48,6 +49,42 @@ namespace OkulApp
             {
 
                 MessageBox.Show("Bilinmeyen Hata!");
+            }
+        }
+
+        private void btnBul_Click(object sender, EventArgs e)
+        {
+            var frm=new frmOgrBul(this);
+            frm.Show();
+            btnSil.Enabled = true;
+            btnGuncelle.Enabled = true;
+        }
+
+        private void btnSil_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var obl = new OgrenciBL();
+                MessageBox.Show(obl.OgrenciSil(OgrenciId) ? "Silme Başarılı" : "Başarısız");
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Bilinmeyen Hata");
+            }
+            txtAd.Clear();
+            txtSoyad.Clear();
+            txtNumara.Clear();
+        }
+
+        private void btnGuncelle_Click(object sender, EventArgs e)
+        {
+            try { 
+            var obl =new OgrenciBL();
+            MessageBox.Show(obl.OgrenciGuncelle(new Ogrenci { Ad = txtAd.Text.Trim(), Soyad = txtSoyad.Text.Trim(), Numara = txtNumara.Text.Trim(), OgrenciId = OgrenciId }) ? "Güncelleme Başarılı" : "Güncelleme Başarısız!");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Bilinmeyen Hata");
             }
         }
     }

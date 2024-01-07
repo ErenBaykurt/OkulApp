@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace OkulApp.DAL
 {
-    public class Helper
+    public class Helper :IDisposable
     {
-        SqlConnection cn= null;
-        SqlCommand cmd = null;
+
+        private SqlConnection cn= null;
+        private SqlCommand cmd = null;
 
         string cstr = ConfigurationManager.ConnectionStrings["cstr"].ConnectionString;
 
@@ -26,6 +28,23 @@ namespace OkulApp.DAL
                 }
             }
         
+        }
+
+        public SqlDataReader ExecuteReader(string cmdtext, SqlParameter[] p = null)
+        {
+            cn = new SqlConnection(cstr);
+            cmd = new SqlCommand(cmdtext, cn);
+            if (p != null)
+            {
+               cmd.Parameters.AddRange(p);
+            }
+            cn.Open();
+            return cmd.ExecuteReader(CommandBehavior.CloseConnection);
+        }
+
+        public void Dispose()
+        {
+           
         }
     }
 }
