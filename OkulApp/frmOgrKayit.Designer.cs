@@ -176,11 +176,11 @@
         private System.Windows.Forms.Label lblNumara;
         private System.Windows.Forms.Label lblAd;
         private System.Windows.Forms.Button btnBul;
-        private System.Windows.Forms.Button btnSil;
         public System.Windows.Forms.TextBox txtSoyad;
         public System.Windows.Forms.TextBox txtAd;
         public System.Windows.Forms.TextBox txtNumara;
-        private System.Windows.Forms.Button btnGuncelle;
+        public System.Windows.Forms.Button btnSil;
+        public System.Windows.Forms.Button btnGuncelle;
     }
 }
 

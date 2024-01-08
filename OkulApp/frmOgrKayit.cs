@@ -56,8 +56,7 @@ namespace OkulApp
         {
             var frm=new frmOgrBul(this);
             frm.Show();
-            btnSil.Enabled = true;
-            btnGuncelle.Enabled = true;
+            
         }
 
         private void btnSil_Click(object sender, EventArgs e)
