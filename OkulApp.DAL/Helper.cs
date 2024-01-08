@@ -15,17 +15,25 @@ namespace OkulApp.DAL
 
         public int ExecuteNonQuery(string cmdtext, SqlParameter[] p=null) 
         {
-            using(cn=new SqlConnection(cstr))
+            try
             {
-                using (cmd=new SqlCommand(cmdtext, cn)) 
+                using (cn = new SqlConnection(cstr))
                 {
-                    if (p != null)
+                    using (cmd = new SqlCommand(cmdtext, cn))
                     {
-                        cmd.Parameters.AddRange(p);
+                        if (p != null)
+                        {
+                            cmd.Parameters.AddRange(p);
+                        }
+                        cn.Open();
+                        return cmd.ExecuteNonQuery();
                     }
-                    cn.Open();
-                    return cmd.ExecuteNonQuery();
                 }
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         
         }
@@ -34,12 +42,20 @@ namespace OkulApp.DAL
         {
             cn = new SqlConnection(cstr);
             cmd = new SqlCommand(cmdtext, cn);
-            if (p != null)
+            try
             {
-               cmd.Parameters.AddRange(p);
+                if (p != null)
+                {
+                    cmd.Parameters.AddRange(p);
+                }
+                cn.Open();
+                return cmd.ExecuteReader(CommandBehavior.CloseConnection);
             }
-            cn.Open();
-            return cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public void Dispose()
